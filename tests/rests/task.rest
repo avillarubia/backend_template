@@ -1,0 +1,159 @@
+POST http://localhost:3000/api/tasks
+Content-Type: application/json
+
+{
+    "name": "Manilhig",
+    "details": "Silhigon ang tae sa baboy",
+    "budget": 1000,
+    "location": {
+        "country": "Philippines",
+        "address": "Molicay"
+    },
+    "images": ["tae1.png", "tae2.png"],
+    "created_by":{
+        "_id": "123456789123456789123456",
+        "email": "test@mail.com",
+        "first_name": "Aljohn",
+        "last_name": "Villarubia"
+    },
+    "due_date": "2020-05-09T06:01:17.171Z"
+}
+
+###
+
+GET http://localhost:3000/api/tasks/all
+
+###
+
+GET http://localhost:3000/api/tasks/5ebd2fb42e6ba93a7c6cfb23
+
+###
+
+GET http://localhost:3000/api/tasks/filtered/mobile_number/09107244730
+
+###
+PATCH http://localhost:3000/api/tasks/offer
+Content-Type: application/json
+
+{
+    "task_id": "5ed7468439122d1df80e8234",
+    "offer":  {    
+        "applicant": {
+            "_id": "5ebd1c0a33be07102c90829d",
+            "mobile_number": "09107244729", 
+            "email": "test2@mail.com",
+            "first_name":"Hardcoded",
+            "last_name": "Person"
+        },
+        "message": "Naa rakos nag puyo atbang NSO sir. Dali ra kaayo na nako.",
+        "price": "100"
+    }
+}
+
+###
+PATCH http://localhost:3000/api/tasks/interviewee
+Content-Type: application/json
+
+{
+    "task_id": "5ebd1a800c542a3a6893115d",
+    "interviewee":  {    
+        "_id": "5ebd1c0a33be07102c90829d",
+        "mobile_number": "09107244729", 
+        "email": "test2@mail.com",
+        "first_name":"Brader",
+        "last_name": "Eloy",
+        "photo": "gwapo_nga_avatar.png"
+    }
+}
+
+###
+PATCH http://localhost:3000/api/tasks/assignee
+Content-Type: application/json
+
+{
+    "task_id": "5ebd1a800c542a3a6893115d",
+    "assignee":  {    
+        "_id": "5ebd1c0a33be07102c90829d",
+        "mobile_number": "09107244729", 
+        "email": "test2@mail.com",
+        "first_name":"Brader",
+        "last_name": "Eloy",
+        "photo": "gwapo_nga_avatar.png"
+    }
+}
+
+###
+GET http://localhost:3000/api/tasks/my
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWFhYzBhYjljYmU0ZTNmNjg4OTcyZTUiLCJmaXJzdF9uYW1lIjoiRGFib3kiLCJsYXN0X25hbWUiOiJWaWxsYXJ1YmlhIiwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSIsIm1vYmlsZV9udW1iZXIiOiIwOTEyMzQ1Njc4OSIsImlhdCI6MTU5MTYxNDE4M30.HkNlycYH8ib0AvYZ5dYHnmCTrwYNfVFyHrJiRRwzLwY
+
+###
+
+PATCH http://localhost:3000/api/tasks/status
+Content-Type: application/json
+
+{
+    "task_id": "5ebd1a800c542a3a6893115d",
+    "status":  "in-progress"
+}
+
+###
+GET http://localhost:3000/api/tasks/creator/09107244730/user/09107244729
+
+###
+GET http://localhost:3000/api/tasks/applicant/09102970743
+
+###
+GET http://localhost:3000/api/tasks/search_by_name/man
+
+###
+GET http://localhost:3000/api/tasks/search_by_name/man
+
+###
+GET http://localhost:3000/api/tasks/search_by_location/an
+
+###
+GET http://localhost:3000/api/tasks/search_by_location/Man
+
+###
+
+###
+PATCH http://localhost:3000/api/tasks
+Content-Type: application/json
+
+{
+    "_id": "5ebd1a800c542a3a6893115d",
+    "name": "Manilhig",
+    "details": "Silhigon ang tae sa baboy",
+    "budget": 99,
+    "location": {
+        "country": "Philippines",
+        "address": "Molicay"
+    },
+    "images": ["tae1.png", "tae2.png"],
+    "created_by":{
+        "_id": "123456789123456789123456",
+        "email": "test@mail.com",
+        "first_name": "Aljohn",
+        "last_name": "Villarubia",
+        "mobile_number": "09107244729"
+    },
+    "due_date": "2020-05-09T06:01:17.171Z",
+    "status": "completed"
+}
+
+###
+
+PATCH http://localhost:3000/api/tasks/offer_status/5ebd1a800c542a3a6893115d/user/09107244730/cancel/true
+
+###
+
+PATCH http://localhost:3000/api/tasks/remove_offer/5ebd1a800c542a3a6893115d/user_mobile_number/09107244729
+ 
+###
+
+PATCH http://localhost:3000/api/tasks/remove_assignees/5ebd1a800c542a3a6893115d
+
+###
+
+PATCH http://localhost:3000/api/tasks/remove_assignee/5ebd1a800c542a3a6893115d/assignee/09107244731
+

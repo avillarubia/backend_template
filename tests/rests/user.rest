@@ -1,0 +1,102 @@
+POST http://localhost:3000/api/v1/users
+Content-Type: application/json
+
+{
+    "first_name": "Aljohn",
+    "last_name": "Villarubia",
+    "email": "test@gmail.com",
+    "password": "12345"
+}
+
+###
+
+PATCH http://localhost:3000/api/users/verify
+Content-Type: application/json
+
+{
+    "mobile_number": "09123456789",
+    "verification_code": "94139"
+}
+
+###
+
+PATCH http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "mobile_number": "09123456789",
+    "first_name": "Vincent",
+    "last_name": "Alegrado",
+    "email": "vinsalegrado@gmail.com",
+    "main_address": {
+        "postal_code":  "7023",
+        "street_name":  "Zamora Street",
+        "province":  "Zamboanga Del Sur",
+        "city_municipality": "Molave",
+        "barangay_district_name":  "Maloloy-in"
+    },
+    "birthdate": "1993-04-12T00:00:00.000Z",
+    "gender": "male",
+    "verified": true
+}
+
+###
+
+GET http://localhost:3000/api/users/5ed8a05033fd471c94f0a8ab
+
+###
+
+PATCH http://localhost:3000/api/users/change_password
+Content-Type: application/json
+
+{
+    "mobile_number": "09123456789",
+    "new_password": "123456",
+    "old_password": "12345"
+}
+
+###
+
+PATCH http://localhost:3000/api/users/feedback
+Content-Type: application/json
+
+{
+    "mobile_number": "09123456789",
+    "feedback": {
+        "client": {
+            "_id": "5eaac0ab9cbe4e3f688972d6",
+            "first_name": "Aljohn",
+            "last_name": "Villarubia",
+            "photo": "aljohn.png"
+        },
+        "task": {
+            "_id": "5eaac0ab9cbe4e3f688972d3",
+            "name": "Puregold groceries"
+        },
+        "message": "one smile, then I died, only to be revived by you",
+        "rating": 5
+    }
+}  
+
+###
+
+PATCH http://localhost:3000/api/users/feedback
+Content-Type: application/json
+
+{
+    "mobile_number": "09123456789",
+    "feedback": {
+        "worker": {
+            "_id": "5eaac0ab9cbe4e3f688972e6",
+            "first_name": "Aljohn",
+            "last_name": "Villarubia",
+            "photo": "aljohn.png"
+        },
+        "task": {
+            "_id": "5eaac0ab9cbe4e3f688972d3",
+            "name": "Puregold groceries"
+        },
+        "message": "one smile, then I died, only to be revived by you",
+        "rating": 5
+    }
+} 
