@@ -14,7 +14,7 @@
             "env": {
                 "NODE_ENV": "development",
                 "JWT_SECRET": "12345",
-                "MONGO_URI": "mongodb://localhost/test"
+                "MONGO_URI": "mongodb://localhost/backend_template"
             },
             "program": "${workspaceFolder}\\index.js"
         }
